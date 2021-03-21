@@ -1,0 +1,16 @@
+.nyc_output/
+.vscode/
+coverage/
+lib/
+node_modules
+npm-debug*
+
+#JavaScript
+*.js
+
+#IDE Stuff
+**/.idea
+
+#OS STUFF
+.DS_Store
+.tmp
