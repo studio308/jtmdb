@@ -1,3 +1,3 @@
 export interface Options {
-    v4AccessToken: string
+  v4AccessToken: string;
 }

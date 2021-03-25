@@ -1,7 +1,7 @@
-import {Api} from '../../../lib/modules/search/api';
-import {HttpClient} from '../../../lib/modules/httpClient';
+import {Api} from '../../../modules/search/api';
+import {HttpClient} from '../../../modules/httpClient';
 
-jest.mock('../../../lib/modules/httpClient')
+jest.mock('../../../modules/httpClient')
 
 const httpClient = new HttpClient({v4AccessToken: 'test_token'})
 const searchApi = new Api(httpClient)

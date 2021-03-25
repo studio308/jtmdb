@@ -1,4 +1,4 @@
-import {Jtmdb} from '../src';
+import {Jtmdb} from '../index';
 
 const jtmdb = new Jtmdb({v4AccessToken: 'test_token'})
 

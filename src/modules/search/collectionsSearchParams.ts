@@ -1,5 +1,5 @@
-import {SearchParams} from './searchParams';
+import { SearchParams } from './searchParams';
 
 export interface CollectionsSearchParams extends SearchParams {
-    language?: string
+  language?: string;
 }

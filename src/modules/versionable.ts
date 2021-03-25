@@ -1,5 +1,5 @@
-import {Version} from './version';
+import { Version } from './version';
 
 export interface Versionable {
-    getVersion(): Version
+  getVersion(): Version;
 }
