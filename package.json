@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "prepare": "npm run test && npm run build",
+    "prepare": "npm run build && npm run test",
     "lint": "tslint {src,test}/**/*.ts --format stylish",
     "test": "jest --coverage"
   },
