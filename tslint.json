@@ -3,6 +3,11 @@
   "rules": {
     "quotemark": [true, "single"],
     "semicolon": [false]
+  },
+  "linterOptions": {
+    "exclude": [
+      "node_modules"
+    ]
   }
 }
 

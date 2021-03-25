@@ -1,0 +1,21 @@
+language: node_js
+
+node_js:
+- '12.13'
+
+cache:
+  directories:
+    - 'node_modules'
+
+deploy:
+  provider: npm
+  email: jonny@studio308.co
+  api_key:
+    secure: KOg4F87WFq2dPtfqnyo7o3fNCMPxVCClJSfUVcBcLjnHN9pHJ8J9kw/6wuTLQZHf/euR5TSt4vZQFrAAs08dG/W+JNPSr5JhLzXhyaxSsMypKI6Z5d00DX3wKzSDGuuUZwAsT650b1NcG+h0ttdbqZ6R/Y13T0toQR+uA3T29N11X83S5GqJsM+1L4xxn2BVgffYtojf74n8nRmCLSUPJwhxornuKZ2pyGdovvxpQiB89JUGiTXk3qf+2Bm+jrxevuM8vAgVZJlANgIhfdtV9b1KS4a421ABFv45IuSUDWhqfaMAmeK2OwfT/V7fhzYC/g5nHQefr6OvkSf2LQ8sH4z+K0tVQiOU16Z7BgUgQUj7ERToGXhs/SMYwu6E+Vb5B6o4McVj/mzZoLm76Ch52DoSgoFcvrAa5qR67p9LgUfsMTxX58JoO0KRyUEkntZCW59rwUPH8yb27H6cUlNKndRUJWQSuPoS7bv9PLVXDOvxvtlnsqgt75d/Xbvy0v9Kb/2zTy5EidmM59Cx/dlCtJjTqNmVXsztaEqWd/HZilRQRV65iYpevqRYjJ+qOML+8TuBG4rTx186kXswyttFPP8jx8vxoOt90u41Eu8nyQErV0U9q2qb4lnX8UNmfnGH6cZFkX3EssZLCY/Kj0FHEYstR/mzo9414vqtyKMXtCw=
+  on:
+    tags: true
+    repo: studio308/jtmdb
+  skip_cleanup: 'true'
+
+after_success:
+  - codecov

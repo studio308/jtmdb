@@ -2,7 +2,7 @@ import axios from 'axios';
 import {Options} from './options';
 
 export class HttpClient {
-    v4AccessToken: string
+    private readonly v4AccessToken: string
     private static baseUrl = 'https://api.themoviedb.org';
 
     constructor(options: Options) {
@@ -22,7 +22,7 @@ export class HttpClient {
         return `${HttpClient.baseUrl}${path}${queryString}`
     }
 
-    private prepareQueryString(params: {}) {
+    private prepareQueryString(params: {[key: string]: any}) {
         return Object.keys(params).map((key) => {
             return encodeURIComponent(key) + '=' + encodeURIComponent(params[key])
         }).join('&');
@@ -36,7 +36,7 @@ export class HttpClient {
                 'Authorization': `Bearer ${this.v4AccessToken}`,
                 'Content-Type': 'application/json;charset=utf-8'
             }
-        })
+        }).then(resp => resp.data)
     }
 }
 

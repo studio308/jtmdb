@@ -3,7 +3,7 @@ import {HttpClient} from './modules/httpClient';
 import {Api as Search} from './modules/search/api';
 import {Options} from './modules/options';
 
-class TheMovieDb {
+export class Jtmdb {
     httpClient: HttpClient
     movies: Movies;
     search: Search;

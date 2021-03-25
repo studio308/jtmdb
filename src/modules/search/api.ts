@@ -5,14 +5,20 @@ import {MoviesSearchParams} from './moviesSearchParams';
 import {MultiSearchParams} from './multiSearchParams';
 import {PeopleSearchParams} from './peopleSearchParams';
 import {TvShowsSearchParams} from './tvShowsSearchParams';
+import {Version} from '../version';
+import {Versionable} from '../versionable';
 
-export class Api {
-    private static apiVersion = 3
-    private static basePath = `/${Api.apiVersion}/search`
-    httpClient: HttpClient
+export class Api implements Versionable {
+    private static readonly apiVersion = Version.v3
+    private static readonly basePath = `/${Api.apiVersion.toString()}/search`
+    private httpClient: HttpClient
 
     constructor(httpClient: HttpClient) {
         this.httpClient = httpClient
+    }
+
+    getVersion(): Version {
+        return Api.apiVersion
     }
 
     companies(params: SearchParams) {

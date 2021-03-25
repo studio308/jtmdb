@@ -1,13 +1,17 @@
 {
-  "name": "tmdb-client",
+  "name": "jtmdb",
   "version": "0.1.0",
   "description": "A javascript client library for The Movie Database api",
-  "main": "lib/index.js",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "/lib"
+  ],
   "scripts": {
     "build": "tsc",
+    "prepare": "npm run test && npm run build",
     "lint": "tslint {src,test}/**/*.ts --format stylish",
-    "test": "nyc --check-coverage --lines 100 mocha --reporter progress",
-    "test:watch": "mocha -w --reporter min"
+    "test": "jest --coverage"
   },
   "nyc": {
     "require": [
@@ -25,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/studio-308/tmdb-client-js"
+    "url": "https://github.com/studio308/jtmdb"
   },
   "keywords": [
     "TMDB",
@@ -34,24 +38,15 @@
   "author": "Studio 308 LLC",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/studio-308/tmdbs-js/issues"
+    "url": "https://github.com/studio308/jtmdb/issues"
   },
-  "homepage": "https://gitlab.com/studio-308/tmdbs-js#readme",
+  "homepage": "https://github.com/studio308/jtmdb#readme",
   "devDependencies": {
-    "@types/chai": "^4.2.15",
-    "@types/chai-as-promised": "^7.1.3",
-    "@types/mocha": "^8.2.2",
+    "@types/jest": "^26.0.21",
     "@types/node": "^14.14.35",
-    "@types/proxyquire": "^1.3.28",
-    "@types/sinon": "^9.0.11",
-    "@types/sinon-chai": "^3.2.5",
-    "chai": "^4.3.4",
-    "chai-as-promised": "^7.1.1",
-    "mocha": "^8.3.2",
-    "nyc": "^15.1.0",
-    "proxyquire": "^2.1.3",
-    "sinon": "^9.2.4",
-    "sinon-chai": "^3.5.0",
+    "codecov": "^3.8.1",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.4",
     "ts-node": "^9.1.1",
     "tslint": "^6.1.3",
     "typescript": "^4.2.3"

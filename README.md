@@ -1,1 +1,1 @@
-tmdb-client-js
+jtmdb
