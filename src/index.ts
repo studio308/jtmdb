@@ -13,4 +13,8 @@ export class Jtmdb {
     this.movies = new Movies(this.httpClient);
     this.search = new Search(this.httpClient);
   }
+
+  get(path: string, params: { [key: string]: any } = null) {
+    return this.httpClient.get(path, params);
+  }
 }

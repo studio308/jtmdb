@@ -7,7 +7,6 @@ npm-debug*
 
 #JavaScript
 *.js
-!jest.config.js
 
 #IDE Stuff
 **/.idea
