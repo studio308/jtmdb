@@ -15,10 +15,10 @@ test('Test generic get method send correct parameters to http client and returns
   };
   const mockHttpClientGet = jest.spyOn(jtmdb.httpClient, 'get');
   mockHttpClientGet.mockResolvedValue(response);
-  jtmdb.get(path, params).then((data) => expect(data).toEqual(response));;
+  jtmdb.get(path, params).then((data) => expect(data).toEqual(response));
   expect(mockHttpClientGet).toHaveBeenCalledTimes(1);
   expect(mockHttpClientGet).toHaveBeenCalledWith(path, params);
-})
+});
 
 test('Test Jtmdb has version 3 search service', () => {
   expect(jtmdb.search.getVersion()).toBe('3');
