@@ -44,18 +44,18 @@ export class HttpClient {
       .join('&');
   }
 
-  private request(method: HttpMethod, url: string, data?: {}) {
-    if (this.v4AccessToken === '')
-      return axios
-        .request({
-          method,
-          url,
-          data,
-          headers: {
-            Authorization: `Bearer ${this.v4AccessToken}`,
-            'Content-Type': 'application/json;charset=utf-8',
-          },
-        })
-        .then((resp) => resp.data);
+  private request(method: HttpMethod, url: string, data: {} = null) {
+    let requestConfig = {
+      method,
+      url,
+      headers: {
+        Authorization: `Bearer ${this.v4AccessToken}`,
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    };
+    if (data !== null) {
+      requestConfig = { ...requestConfig, ...{ data } };
+    }
+    return axios.request(requestConfig).then((resp) => resp.data);
   }
 }
