@@ -1,17 +1,17 @@
-import { Api } from '../../../modules/search/api';
+import { Search } from '../../../modules/search/search';
 import { HttpClient } from '../../../modules/httpClient';
 
 jest.mock('../../../modules/httpClient');
 
 const httpClient = new HttpClient({ v4AccessToken: 'test_token' });
-const searchApi = new Api(httpClient);
+const searchApi = new Search(httpClient);
 const response = [{ name: 'foo' }];
 
 beforeEach(() => {
   jest.clearAllMocks();
 });
 
-test('Test Api getVersion returns v3', () => {
+test('Test Search getVersion returns v3', () => {
   expect(searchApi.getVersion()).toBe('3');
 });
 

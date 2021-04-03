@@ -8,9 +8,9 @@ import { TvShowsSearchParams } from './tvShowsSearchParams';
 import { Version } from '../version';
 import { Versionable } from '../versionable';
 
-export class Api implements Versionable {
+export class Search implements Versionable {
   private static readonly apiVersion = Version.v3;
-  private static readonly basePath = `/${Api.apiVersion.toString()}/search`;
+  private static readonly basePath = `/${Search.apiVersion.toString()}/search`;
   private httpClient: HttpClient;
 
   constructor(httpClient: HttpClient) {
@@ -18,7 +18,7 @@ export class Api implements Versionable {
   }
 
   getVersion(): Version {
-    return Api.apiVersion;
+    return Search.apiVersion;
   }
 
   companies(params: SearchParams) {
@@ -50,7 +50,7 @@ export class Api implements Versionable {
   }
 
   private get(path: string, params: SearchParams) {
-    const fullPath = `${Api.basePath}${path}`;
+    const fullPath = `${Search.basePath}${path}`;
     return this.httpClient.get(fullPath, params);
   }
 }
