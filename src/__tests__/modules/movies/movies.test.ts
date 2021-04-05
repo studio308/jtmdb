@@ -3,7 +3,7 @@ import { HttpClient } from '../../../modules/httpClient';
 
 jest.mock('../../../modules/httpClient');
 
-const httpClient = new HttpClient({ v4AccessToken: 'test_token' });
+const httpClient = new HttpClient({ v4AccessToken: 'test.token' });
 const moviesApi = new Movies(httpClient);
 const movieId = 550;
 const response = [{ name: 'foo' }];

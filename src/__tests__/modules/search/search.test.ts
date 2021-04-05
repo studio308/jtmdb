@@ -3,7 +3,7 @@ import { HttpClient } from '../../../modules/httpClient';
 
 jest.mock('../../../modules/httpClient');
 
-const httpClient = new HttpClient({ v4AccessToken: 'test_token' });
+const httpClient = new HttpClient({ v4AccessToken: 'test.token' });
 const searchApi = new Search(httpClient);
 const response = [{ name: 'foo' }];
 
