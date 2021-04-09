@@ -36,7 +36,7 @@ results = await jtmdb.post('/version/resource', {
   query: 'parameters'
 })
 
-results = await jtmdb.delte('/version/resource', {
+results = await jtmdb.delete('/version/resource', {
   query: 'parameters'
 })
 ```
@@ -57,4 +57,5 @@ const results = await jtmdb.search.multi({
 Currently, the following modules of TMDb API are implemented:
 
 - Movies
+- People
 - Search

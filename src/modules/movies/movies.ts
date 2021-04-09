@@ -1,12 +1,12 @@
 import { HttpClient } from '../httpClient';
 import { Versionable } from '../versionable';
 import { Version } from '../version';
-import { DetailsParams } from './detailsParams';
-import { AlternativeTitleParams } from './AlternativeTitleParams';
-import { ChangesParams } from './changesParams';
-import { LanguageOnlyParams } from './languageOnlyParams';
+import { DetailsParams } from '../common/detailsParams';
+import { CountryOnlyParams } from '../common/CountryOnlyParams';
+import { ChangesParams } from '../common/changesParams';
+import { LanguageOnlyParams } from '../common/languageOnlyParams';
 import { ImagesParams } from './imagesParams';
-import { LangAndPageParams } from './langAndPageParams';
+import { LangAndPageParams } from '../common/langAndPageParams';
 import { LangPageRegionParams } from './LangPageRegionParams';
 import { SessionParams } from '../sessionParams';
 
@@ -31,7 +31,7 @@ export class Movies implements Versionable {
     return this.get(`/${movieId}/account_states`, params);
   }
 
-  alternativeTitles(movieId: number, params: AlternativeTitleParams = null) {
+  alternativeTitles(movieId: number, params: CountryOnlyParams = null) {
     return this.get(`/${movieId}/alternative_titles`, params);
   }
 

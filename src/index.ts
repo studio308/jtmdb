@@ -2,15 +2,18 @@ import { Movies } from './modules/movies/movies';
 import { HttpClient } from './modules/httpClient';
 import { Search } from './modules/search/search';
 import { Options } from './modules/options';
+import { People } from './modules/people/people';
 
 export class Jtmdb {
   httpClient: HttpClient;
   movies: Movies;
+  people: People;
   search: Search;
 
   constructor(options: Options) {
     this.httpClient = new HttpClient(options);
     this.movies = new Movies(this.httpClient);
+    this.people = new People(this.httpClient);
     this.search = new Search(this.httpClient);
   }
 
