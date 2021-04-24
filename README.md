@@ -56,6 +56,7 @@ const results = await jtmdb.search.multi({
 
 Currently, the following modules of TMDb API are implemented:
 
-- Movies
-- People
-- Search
+- List (v4) - `jtmdb.list`
+- Movies (v3) - `jtmdb.movies`
+- People (v3) - `jtmdb.people`
+- Search (v3) - `jtmdb.search`

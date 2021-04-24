@@ -83,11 +83,50 @@ test('Test post with no params constructs correct url and calls axios request', 
   });
 });
 
+test('Test put with params constructs correct url and calls axios request', () => {
+  const mockAxiosRequest = jest.spyOn(axios, 'request');
+  mockAxiosRequest.mockResolvedValue({});
+  const httpClient = new HttpClient({ v4AccessToken: 'test.token' });
+  httpClient.put('/test/endpoint', { value: 9 }, { foo: 'bar', baz: 'wat' });
+  expect(mockAxiosRequest).toHaveBeenCalledTimes(1);
+  expect(mockAxiosRequest).toHaveBeenCalledWith({
+    method: 'put',
+    url: 'https://api.themoviedb.org/test/endpoint?foo=bar&baz=wat',
+    headers: {
+      Authorization: `Bearer test.token`,
+      'Content-Type': 'application/json;charset=utf-8',
+    },
+    data: {
+      value: 9,
+    },
+  });
+});
+
+test('Test put with no params constructs correct url and calls axios request', () => {
+  const mockAxiosRequest = jest.spyOn(axios, 'request');
+  mockAxiosRequest.mockResolvedValue({});
+  const httpClient = new HttpClient({ v4AccessToken: 'test.token' });
+  httpClient.put('/test/endpoint', { value: 9 });
+  expect(mockAxiosRequest).toHaveBeenCalledTimes(1);
+  expect(mockAxiosRequest).toHaveBeenCalledWith({
+    method: 'put',
+    url: 'https://api.themoviedb.org/test/endpoint',
+    headers: {
+      Authorization: `Bearer test.token`,
+      'Content-Type': 'application/json;charset=utf-8',
+    },
+    data: {
+      value: 9,
+    },
+  });
+});
+
 test('Test delete with params constructs correct url and calls axios request', () => {
   const mockAxiosRequest = jest.spyOn(axios, 'request');
   mockAxiosRequest.mockResolvedValue({});
   const httpClient = new HttpClient({ v4AccessToken: 'test.token' });
-  httpClient.delete('/test/endpoint', { foo: 'bar', baz: 'wat' });
+  const body = { items: [{ media_type: 'movie', media_id: 550 }] };
+  httpClient.delete('/test/endpoint', body, { foo: 'bar', baz: 'wat' });
   expect(mockAxiosRequest).toHaveBeenCalledTimes(1);
   expect(mockAxiosRequest).toHaveBeenCalledWith({
     method: 'delete',
@@ -96,10 +135,11 @@ test('Test delete with params constructs correct url and calls axios request', (
       Authorization: `Bearer test.token`,
       'Content-Type': 'application/json;charset=utf-8',
     },
+    data: body,
   });
 });
 
-test('Test get with no params constructs correct url and calls axios request', () => {
+test('Test delete with no params constructs correct url and calls axios request', () => {
   const mockAxiosRequest = jest.spyOn(axios, 'request');
   mockAxiosRequest.mockResolvedValue({});
   const httpClient = new HttpClient({ v4AccessToken: 'test.token' });

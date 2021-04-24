@@ -23,9 +23,14 @@ export class HttpClient {
     return this.request(HttpMethod.POST, url, body);
   }
 
-  delete(path: string, params: {} = null) {
+  put(path: string, body: {}, params: {} = null) {
     const url = this.createUrl(path, params);
-    return this.request(HttpMethod.DELETE, url);
+    return this.request(HttpMethod.PUT, url, body);
+  }
+
+  delete(path: string, body: {} = null, params: {} = null) {
+    const url = this.createUrl(path, params);
+    return this.request(HttpMethod.DELETE, url, body);
   }
 
   private createUrl(path: string, params: {} = null) {

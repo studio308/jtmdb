@@ -2,12 +2,12 @@ import { HttpClient } from '../httpClient';
 import { Versionable } from '../versionable';
 import { Version } from '../version';
 import { DetailsParams } from '../common/detailsParams';
-import { CountryOnlyParams } from '../common/CountryOnlyParams';
+import { CountryOnlyParams } from '../common/countryOnlyParams';
 import { ChangesParams } from '../common/changesParams';
 import { LanguageOnlyParams } from '../common/languageOnlyParams';
 import { ImagesParams } from './imagesParams';
 import { LangAndPageParams } from '../common/langAndPageParams';
-import { LangPageRegionParams } from './LangPageRegionParams';
+import { LangPageRegionParams } from './langPageRegionParams';
 import { SessionParams } from '../sessionParams';
 
 export class Movies implements Versionable {
